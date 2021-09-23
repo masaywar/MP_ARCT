@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class BaseObject : MonoBehaviour
 {
-    private ObjectManager mObjectManager;
+    private ObjectManager m_ObjectManager;
 
     [SerializeField] private string mId;
 
@@ -19,8 +19,10 @@ public abstract class BaseObject : MonoBehaviour
         TryInitialize();
     }
 
-    protected virtual void TryInitialize()
+    protected virtual bool TryInitialize()
     {
-        mObjectManager = ObjectManager.Instance;
+        m_ObjectManager = ObjectManager.Instance;
+
+        return true;
     }
 }
